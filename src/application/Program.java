@@ -35,11 +35,10 @@ public class Program {
 		RentalService rentalService = new RentalService(pricePerHour, pricePerDay,new BrazilTaxService());
 		rentalService.processInVoice(cr);
 		
-		System.out.println("Fatura: ");
-		System.out.println("Pagamento básico: " + cr.getInvoice().getBasicPayment());
-		
-		System.out.println("Imposto: " + cr.getInvoice().getTax());
-		System.out.println("Pagamento Total: " + cr.getInvoice().getTotalPayment());
+		System.out.println("FATURA:");
+		System.out.println("Pagamento basico: " + String.format("%.2f", cr.getInvoice().getBasicPayment()));
+		System.out.println("Imposto: " + String.format("%.2f", cr.getInvoice().getTax()));
+		System.out.println("Pagamento total: " + String.format("%.2f", cr.getInvoice().getTotalPayment()));
 		
 		sc.close();
 	}
